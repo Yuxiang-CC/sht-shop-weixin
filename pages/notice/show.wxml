@@ -1,0 +1,6 @@
+<view class="notice">
+  <view class="title">{{noticeDetail.noticeTitle}}</view>
+  <view class="text">
+    <Parser html="{{noticeDetail.noticeContent}}" />
+  </view>
+</view>

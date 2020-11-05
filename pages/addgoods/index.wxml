@@ -1,0 +1,115 @@
+<!--pages/addgoods/index.wxml-->
+<van-cell-group>
+<form bindsubmit="formSubmit" >
+  <van-field
+    title-width="5em"
+    name="title"
+    model:value="{{ goodsInfo.title }}"
+    required
+    clearable
+    label="商品名"
+    placeholder="例：计算机网络书"
+  />
+
+  <van-field
+    title-width="5em"
+    name="keywords"
+    value="{{ goodsInfo.keywords }}"
+    label="关键词"
+    placeholder="例：计算机"
+    required
+    clearable
+  />
+  <van-field
+    title-width="5em"
+    name="originPrice"
+    value="{{ goodsInfo.originPrice }}"
+    type="number"
+    label="原价"
+    disabled
+    clearable>
+    <van-stepper 
+     slot="button" 
+     value="{{ 0 }}"
+     step="0.1" 
+     min="{{0}}"
+     decimal-length="{{ 2 }}" 
+     bind:change="originPriceOnChange"
+     />
+</van-field>
+  <van-field
+    title-width="5em"
+    name="presentPrice"
+    value="{{ goodsInfo.presentPrice }}"
+    type="idcard"
+    label="现价"
+    placeholder="出售的价格"
+    disabled
+    required
+    clearable>
+    <van-stepper 
+    slot="button" 
+    min="{{0}}"
+    value="{{ 0 }}" 
+    step="0.1" 
+    decimal-length="{{ 2 }}" 
+    bind:change="presentPriceOnChange"
+    />
+</van-field>
+  <van-field
+    title-width="5em"
+    name="number"
+    value="{{ goodsInfo.number }}"
+    type="digit"
+    label="数量"
+    disabled
+    required
+    clearable>
+    <van-stepper slot="button" 
+    value="{{ 0 }}" 
+    min="{{0}}"
+    integer 
+    bind:change="numberOnChange" />
+</van-field>
+
+  <van-field
+    title-width="5em"
+    name="unit"
+    value="{{ goodsInfo.unit }}"
+    label="单位"
+    placeholder="例：本"
+    required
+    clearable
+  />
+  <van-field
+    title-width="5em"
+    name="descript"
+    value="{{ goodsInfo.descript }}"
+    type="textarea"
+    autosize="true"
+    label="商品描述"
+    placeholder="描述商品信息，有助于ta人了解"
+    required
+    clearable
+  />
+  <van-divider contentPosition="center">上传图片 第一张为封面，最多七张</van-divider>
+  <van-uploader 
+    file-list="{{ fileList }}" 
+    max-count="7"
+    accept="image"
+    use-before-read
+    bind:before-read="uploadBefore"
+    bind:after-read="uploadFile"
+  />
+  <van-divider contentPosition="center">商品类别</van-divider>
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" 
+  value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker">
+      当前选择：[ {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}} ]
+    </view>
+  </picker>
+  <van-divider />
+  <button type="button" class="sub" formType="submit"
+  style="margin-left:0px;margin-right:0px;width:100vw;">提交</button>
+</form>
+</van-cell-group>

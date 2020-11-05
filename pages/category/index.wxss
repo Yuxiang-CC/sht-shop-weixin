@@ -1,0 +1,96 @@
+page {
+    width: 100vw;
+    height: 100vh;
+}
+
+page,
+view,
+image,
+input {
+    display: block;
+    box-sizing: border-box;
+}
+
+.cates {
+    height: 100%;
+}
+
+.search {
+    margin-top: 32rpx;
+    margin-bottom: 5rpx;
+    position: relative;
+    width: 700rpx;
+    height: 66rpx;
+    margin-left: 25rpx;
+    display: block;
+    box-sizing: border-box;
+}
+
+.banner {
+    margin-bottom: 30rpx;
+}
+
+.search input {
+    border: 1rpx solid #e3e3e3;
+    width: 700rpx;
+    height: 66rpx;
+    border-radius: 30rpx;
+    padding-left: 32rpx;
+}
+
+.search image {
+    width: 35rpx;
+    height: 35rpx;
+    position: absolute;
+    top: 16rpx;
+    right: 32rpx;
+}
+
+.cates .cates_container {
+    /* less中使用calc要注意，如果需要原样装换需要写  ~'' */
+    height: calc(100vh - 90rpx);
+    display: flex;
+}
+
+.cates .cates_container .left_menu {
+    flex: 2;
+}
+
+.cates .cates_container .left_menu .menu_item {
+    height: 80rpx;
+    display: flex;
+    font-size: 30rpx;
+    align-items: center;
+    justify-content: center;
+}
+
+.cates .cates_container .left_menu .active {
+    font-size: 32rpx;
+    color: #ff3232;
+    border-left: 5rpx solid #ff3232;
+}
+
+.cates .cates_container .right_content {
+    flex: 5;
+}
+
+.cates .cates_container .right_content .goods_group .goods_list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cates .cates_container .right_content .goods_group .goods_list navigator {
+    width: 33.33%;
+    text-align: center;
+    height: 160rpx;
+}
+
+.cates .cates_container .right_content .goods_group .goods_list navigator image {
+    margin: 0 auto;
+    width: 50%;
+    height: 90rpx;
+}
+
+.cates .cates_container .right_content .goods_group .goods_list navigator view {
+    font-size: 35rpx;
+}

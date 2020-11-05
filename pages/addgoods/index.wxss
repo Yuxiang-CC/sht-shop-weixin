@@ -1,0 +1,9 @@
+/* pages/addgoods/index.wxss */
+.sub {
+    height: 100rpx;
+    width: 750rpx;
+    text-align: center;
+    background-color: #57cc5c;
+    color: #fff;
+    border-radius: 10rpx;
+}

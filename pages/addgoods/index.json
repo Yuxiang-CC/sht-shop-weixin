@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "van-field": "@vant/weapp/field/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-stepper": "@vant/weapp/stepper/index"
+  },
+  "navigationBarTitleText": "出售商品",
+  "backgroundColor": "#f4f4f4"
+}

@@ -1,0 +1,43 @@
+<van-dialog id="van-dialog" />
+<view class="container">
+  <view class="no-cart" wx:if="{{cartGoods.length <= 0}}">
+    <view class="c">
+      <view class="title-box">
+        购物车空空如也～
+      </view>
+      <view class="to-index-btn" bindtap="toIndexPage">
+        去逛逛
+      </view>
+    </view>
+  </view>
+  <view class="cart-view" wx:if="{{cartGoods.length > 0}}">
+    <view class="list">
+      <view class="group-item">
+        <view class="goods">
+          <view class="item" wx:for="{{cartGoods}}" wx:key="{{item.id}}">
+            <view class="checkbox {{item.isChecked ? 'checked' : ''}}" bindtap="checkedItem" data-item-index="{{index}}"></view>
+            <view class="cart-goods">
+              <image class="img" src="{{item.imageIndex}}"></image>
+              <view class="info">
+                <view class="t">
+                  <text class="name">{{item.goodsName}}</text>
+                  <text class="num">{{item.number}}{{item.unit}}</text>
+                </view>
+                <view class="b">
+                  <text class="price">￥{{item.presentPrice}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="cart-bottom">
+      <view class="checkbox {{checkedAllStatus ? 'checked' : ''}}" bindtap="checkedAll">全选({{checkedGoodsCount}})</view>
+      <view class="total">{{!isEditCart ? '￥'+checkedGoodsAmount : ''}}</view>
+      <view class="delete" bindtap="editCart">{{!isEditCart ? '编辑' : '完成'}}</view>
+      <view class="checkout" bindtap="deleteCart" wx:if="{{isEditCart}}">删除所选</view>
+      <view class="checkout" bindtap="checkoutOrder" wx:if="{{!isEditCart}}">下单</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+{
+    "name": "sht-shop",
+    "version": "1.0.0",
+    "description": "微信二手交易商城",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "yuxiang",
+    "license": "ISC",
+    "keywords": [
+        "二手交易",
+        "校园",
+        "雨巷"
+    ],
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "dependencies": {
+        "@vant/weapp": "^1.5.2"
+    }
+}

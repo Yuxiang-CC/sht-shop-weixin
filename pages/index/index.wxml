@@ -1,0 +1,129 @@
+<!--index.wxml-->
+<view class="swiper-container">
+  <!-- 首页轮播图开始 -->
+  <swiper class="swiper1" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
+    <swiper-item wx:for="{{swiperList}}" wx:key="swiperId">
+      <image  mode="aspectFill" bindtap="tapBanner" src="{{item.swiperImage}}" />
+    </swiper-item>
+  </swiper>
+  <!-- 首页轮播图结束 -->
+  <!-- 搜索框开始 -->
+  <view class="search">
+    <input type="text" placeholder="输入搜索关键词" value="" bindinput="bindinput" bindconfirm="bindconfirm"></input>
+    <image src="/static/images/icon/search.svg" bindtap="goSearch"></image>
+  </view>
+  <!-- 搜索框结束 -->
+</view>
+<!-- 公告通知开始 -->
+<view class="notice-box">
+  <view class="notice">
+    <image class="notice_icon" src="/static/images/notice.png"></image>
+    <swiper class="notice_swiper" vertical autoplay circular>
+      <navigator wx:for="{{noticeList}}" wx:key="noticeId"  
+        url="/pages/notice/show?id={{item.noticeId}}">
+        <swiper-item>
+          <view class="notice_itemr">{{item.noticeTitle}}</view>
+        </swiper-item>
+      </navigator>
+    </swiper>
+  </view>
+  <view class="more">
+    <navigator url="/pages/notice/index">更多 ></navigator>
+  </view>
+</view>
+<!-- 公告通知结束 -->
+<!-- 主页分类开始 -->
+<view class="category-box">
+  <!--  wx:for="{{categories}}" wx:key="id" -->
+  <view class="category-list"  
+    wx:for="{{categoryIndexList}}" 
+    wx:key="id" >
+    <view class="category-column" 
+    bindtap="tabClick"
+    data-id="{{item.id}}">
+      <image mode="aspectFill" class="category-imgbox" src="{{item.iconUrl}}"></image>
+      <view class="category-title">{{item.name}}</view>
+    </view>          
+  </view>
+</view>
+<!-- 主页分类结束 -->
+<view class="container">
+
+  <view class='space'></view>
+  <view class="weui-loadmore weui-loadmore_line">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">商品列表</view>
+  </view>
+
+  <!-- 商品列表开始 -->
+  <view class="goods-container">
+    <view class="goods-box" wx:for="{{indexGoodsList}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
+      <view class="img-box">
+        <image src="{{item.imageIndex}}" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+      <view class="goods-title">{{item.title}}</view>
+      <view style='display:flex;'>
+        <view class="goods-price">¥ {{item.presentPrice}}</view>
+        <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ {{item.originalPrice}}</view>
+      </view>
+    </view>
+    <view class="goods-box" bindtap="toDetailsTap" data-id="1" >
+      <view class="img-box">
+        <image src="/static/images/order/shouhou.png" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+      <view class="goods-title">发哈健康的恢复卡会受到罚款</view>
+      <view style='display:flex;'>
+        <view class="goods-price">¥ 999</view>
+        <view class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ 888</view>
+      </view>
+    </view>
+    <view class="goods-box" >
+      <view class="img-box">
+        <image src="/static/images/order/shouhou.png" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+      <view class="goods-title">发哈健康的恢复卡会受到罚款</view>
+      <view style='display:flex;'>
+        <view class="goods-price">¥ 999</view>
+        <view class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ 888</view>
+      </view>
+    </view>
+    <view class="goods-box" >
+      <view class="img-box">
+        <image src="/static/images/order/shouhou.png" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+      <view class="goods-title">发哈健康的恢复卡会受到罚款</view>
+      <view style='display:flex;'>
+        <view class="goods-price">¥ 999</view>
+        <view class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ 888</view>
+      </view>
+    </view>
+    <view class="goods-box" >
+      <view class="img-box">
+        <image src="/static/images/order/shouhou.png" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+      <view class="goods-title">发哈健康的恢复卡会受到罚款</view>
+      <view style='display:flex;'>
+        <view class="goods-price">¥ 999</view>
+        <view class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ 888</view>
+      </view>
+    </view>
+    <view class="goods-box" >
+      <view class="img-box">
+        <image src="/static/images/order/shouhou.png" class="image" mode="aspectFill" lazy-load="true" />
+      </view>
+      <view class="goods-title">发哈健康的恢复卡会受到罚款</view>
+      <view style='display:flex;'>
+        <view class="goods-price">¥ 999</view>
+        <view class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ 888</view>
+      </view>
+    </view>
+
+  </view>
+  <!-- 商品列表结束 -->
+
+  <view hidden="{{loadingMoreHidden ? true : false}}" class="weui-loadmore weui-loadmore_line" style='margin-top:60rpx;margin-bottom:30rpx;'>
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多啦</view>
+  </view>
+</view>
+<!-- <view class='coupons-float' bindtap="goCoupons">
+  <image src="/static/images/gift.png"></image>
+</view> -->

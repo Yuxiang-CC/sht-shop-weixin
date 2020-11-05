@@ -1,0 +1,78 @@
+<!-- <van-notify id="van-notify" size="small" /> -->
+
+<view class="container">
+  <button class="userinfo" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" style="margin:0px;width:100%;">
+		<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+		<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+	</button>
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+  
+  <view class="user-menu">
+    <view class="item">
+      <navigator url="/pages/ucenter/index?cid=0" class="a">
+        <!-- <text class="icon order"></text> -->
+        <van-icon name="todo-list-o" class="my-van-icon"/>
+        <text class="txt">我的订单</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/ucenter/index?cid=1" class="a">
+        <!-- <text class="icon coupon"></text> -->
+        <van-icon name="balance-list-o" class="my-van-icon"/>
+        <text class="txt">我的出售</text>
+      </navigator>
+    </view>
+    <view class="item no-border">
+      <navigator url="/pages/ucenter/index?cid=2" class="a">
+        <!-- <text class="icon address"></text> -->
+        <van-icon name="goods-collect-o" class="my-van-icon"/>
+        <text class="txt">我的收藏</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/ucenter/index?cid=3" class="a">
+        <!-- <text class="icon security"></text> -->
+        <van-icon name="notes-o" class="my-van-icon"/>
+        <text class="txt">我的足迹</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/addgoods/index" class="a">
+        <!-- <text class="icon address"></text> -->
+        <van-icon name="add-o" class="my-van-icon"/>
+        <text class="txt">我要出售</text>
+      </navigator>
+    </view>
+    <button class="item service" open-type="contact" style="background: #fff;">
+      <view class="no-border">
+        <navigator url="url" class="a">
+          <!-- <text class="icon kefu"></text> -->
+          <van-icon name="manager-o" class="my-van-icon"/>
+          <text class="txt">联系客服</text>
+        </navigator>
+      </view>
+    </button>
+    <!-- <view class="item item-bottom">
+      <navigator url="/pages/help/index" class="a">
+        <text class="icon help"></text>
+        <van-icon name="question-o" class="my-van-icon"/>
+        <text class="txt">帮助中心</text>
+      </navigator>
+    </view> -->
+    <view class="item item-bottom">
+      <navigator url="/pages/feedback/index" class="a">
+        <!-- <text class="icon feedback"></text> -->
+        <van-icon name="edit" class="my-van-icon"/>
+        <text class="txt">意见反馈</text>
+      </navigator>
+    </view>
+    <view class="item no-border item-bottom" v-if="hasMobile != ''">
+      <navigator url="/pages/more/index" class="a">
+        <!-- <text class="icon phone"></text> -->
+        <van-icon name="more-o" class="my-van-icon"/>
+        <text class="txt">更多</text>
+      </navigator>
+    </view>
+  </view>
+  <view class="logout" wx:if="{{token != null}}" bindtap="exitLogin">退出登录</view>
+</view>
